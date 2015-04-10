@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <cstring>
+
 using namespace std;
 
 int main();
@@ -17,11 +18,10 @@ class Registro {
      dato[2] = d3;
      dato[3] = d4;
    }
-
+   
    void leer();
    void Mostrar();
    void Listar(long n);
-
 
    const bool Valido() { return valido == 'S'; }
    const char *Nombre() { return nombre; }
@@ -196,4 +196,4 @@ long LeeNumero()
 
    fgets(numero, 6, stdin);
    return atoi(numero);
-}
+};
