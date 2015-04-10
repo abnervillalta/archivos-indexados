@@ -4,11 +4,10 @@
 #include <cstdlib>
 #include <cstring>
 using namespace std;
-// Funciones auxiliares:
-int Menu();
-long LeeNumero();
 
-// Clase registro.
+int main();
+
+long LeeNumero();
 class Registro {
   public:
    Registro(char *n=NULL, int d1=0, int d2=0, int d3=0, int d4=0) : valido('S') {
@@ -25,14 +24,12 @@ class Registro {
    const bool Valido() { return valido == 'S'; }
    const char *Nombre() { return nombre; }
   private:
-   char valido;  // Campo que indica si el registro es válido
-                 // S->Válido, N->Inválido
+   char valido;  
+                 
    char nombre[34];
    int dato[4];
 };
 
-// Implementaciones de clase Registro:
-// Permite que el usuario introduzca un registro por pantalla
 void Registro::Leer() {
    system("cls");
    cout << "Leer registro:" << endl << endl;
@@ -45,7 +42,6 @@ void Registro::Leer() {
    }
 }
 
-// Muestra un registro en pantalla, si no está marcado como borrado
 void Registro::Mostrar()
 {
    system("cls");
@@ -58,8 +54,6 @@ void Registro::Mostrar()
    cin.get();
 }
 
-// Muestra un registro por pantalla en forma de listado,
-// si no está marcado como borrado
 void Registro::Listar(long n) {
    int i;
 
@@ -72,7 +66,6 @@ void Registro::Listar(long n) {
    }
 }
 
-// Clase Datos, almacena y trata los datos.
 class Datos :public fstream {
   public:
    Datos() : fstream("alea.dat", ios::in | ios::out | ios::binary) {
@@ -93,7 +86,6 @@ class Datos :public fstream {
    void Empaquetar();
 };
 
-// Implementación de la clase Datos.
 void Datos::Guardar(Registro &reg) {
    // Insertar al final:
    clear();
@@ -109,7 +101,6 @@ bool Datos::Recupera(long n, Registro &reg) {
    return gcount() > 0;
 }
 
-// Marca el registro como borrado:
 void Datos::Borrar(long n) {
    char marca;
 
@@ -119,7 +110,6 @@ void Datos::Borrar(long n) {
    write(&marca, 1);
 }
 
-// Elimina los registros marcados como borrados
 void Datos::Empaquetar() {
    ofstream ftemp("alea.tmp", ios::out);
    Registro reg;
@@ -150,24 +140,24 @@ int main()
    do {
       opcion = Menu();
       switch(opcion) {
-         case '1': // Añadir registro
+         case '1': 
             reg.Leer();
             datos.Guardar(reg);
             break;
-         case '2': // Mostrar registro
+         case '2': 
             system("cls");
             cout << "Mostrar registro: ";
             numero = LeeNumero();
             if(datos.Recupera(numero, reg))
                reg.Mostrar();
             break;
-         case '3': // Eliminar registro
+         case '3': 
             system("cls");
             cout <<  "Eliminar registro: ";
             numero = LeeNumero();
             datos.Borrar(numero);
             break;
-         case '4': // Mostrar todo
+         case '4': 
             numero = 0;
             system("cls");
             cout << "Nombre                             Datos" << endl;
@@ -180,7 +170,6 @@ int main()
    return 0;
 }
 
-// Muestra un menú con las opciones disponibles y captura una opción del usuario
 int Menu()
 {
    char resp[20];
@@ -199,7 +188,6 @@ int Menu()
    return resp[0];
 }
 
-// Lee un número suministrado por el usuario
 long LeeNumero()
 {
    char numero[6];
@@ -207,4 +195,3 @@ long LeeNumero()
    fgets(numero, 6, stdin);
    return atoi(numero);
 }
-
