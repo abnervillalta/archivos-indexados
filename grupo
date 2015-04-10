@@ -31,9 +31,7 @@ class Registro {
    int dato[4];
 };
 
-
-
-::Leer() {
+void Registro::Leer() {
    system("cls");
    cout << "Leer registro:" << endl << endl;
    valido = 'S';
