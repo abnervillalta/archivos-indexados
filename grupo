@@ -41,7 +41,6 @@ void Registro::Leer() {
       dato[i] = LeeNumero();
    }
 }
-
 void Registro::Mostrar()
 {
    system("cls");
@@ -53,7 +52,6 @@ void Registro::Mostrar()
    cout << "Pulsa una tecla";
    cin.get();
 }
-
 void Registro::Listar(long n) {
    int i;
 
@@ -81,13 +79,10 @@ class Datos :public fstream {
    void Guardar(Registro &reg);
    bool Recupera(long n, Registro &reg);
    void Borrar(long n);
-
   private:
    void Empaquetar();
 };
-
 void Datos::Guardar(Registro &reg) {
-   // Insertar al final:
    clear();
    seekg(0, ios::end);
    write(reinterpret_cast<char *> (&reg), sizeof(Registro));
