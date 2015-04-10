@@ -195,4 +195,4 @@ long LeeNumero()
 
    fgets(numero, 6, stdin);
    return atoi(numero);
-}
+};
