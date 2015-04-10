@@ -171,7 +171,7 @@ int main()
    return 0;
 }
 
-()
+int Menu()
 {
    char resp[20];
 
