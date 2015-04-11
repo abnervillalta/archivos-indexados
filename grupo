@@ -47,8 +47,7 @@ void Registro::Leer() {
 void Registro::Mostrar()
 {
    system("cls");
-   if(Valido()) {
-      cout << "Nombre: " << nombre << endl;
+   
       for(int i = 0; i < 4; i++)
          cout << "Dato[" << i << "]: " << dato[i] << endl;
    }
