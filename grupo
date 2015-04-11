@@ -177,15 +177,7 @@ int Menu()
    char resp[20];
 
    do {
-      system("cls");
-      cout << "MENU PRINCIPAL" << endl;
-      cout << "--------------" << endl << endl;
-      cout << "1- Insertar registro" << endl;
-      cout << "2- Mostrar registro" << endl;
-      cout << "3- Eliminar registro" << endl;
-      cout << "4- Mostrar todo" << endl;
-      cout << "0- Salir" << endl;
-      cin.getline(resp, 20);
+      
    } while(resp[0] < '0' && resp[0] > '4');
    return resp[0];
 }
