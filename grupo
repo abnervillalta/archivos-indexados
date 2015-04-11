@@ -28,8 +28,7 @@ class Registro {
   private:
    char valido;  
                  
-   char nombre[34];
-   int dato[4];
+  
 };
 
 void Registro::Leer() {
