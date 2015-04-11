@@ -106,7 +106,7 @@ bool Datos::Recupera(long n, Registro &reg) {
 void Datos::Borrar(long n) {
    char marca;
 
-  ;
+  clear() ;
    marca = 'N';
    seekg(n*sizeof(Registro), ios::beg);
    write(&marca, 1);
